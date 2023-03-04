@@ -1,0 +1,23 @@
+{
+    "name": "${localWorkspaceFolderBasename}",
+    "image": "node:slim",
+    "runArgs": [
+        "--workdir",
+        "/${localWorkspaceFolderBasename}",
+        "--tty",
+        "--name",
+        "${localWorkspaceFolderBasename}"
+    ],
+    "mounts": [
+        {
+            "type": "bind",
+            "source": "${localWorkspaceFolder}/workspace",
+            "target": "/${localWorkspaceFolderBasename}"
+        }
+    ],
+    "workspaceFolder": "/${localWorkspaceFolderBasename}",
+    "forwardPorts": [
+        8080
+    ],
+    "postAttachCommand": "npm install -g npm"
+}
